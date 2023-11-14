@@ -21,6 +21,7 @@ import userSlice, {
 } from "../redux/user/userSlice.js";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import UpdateListing from "./UpdateListing.jsx";
 export default function Profile() {
   const { currentUser, loading, error } = useSelector((state) => state.user);
   const [file, setFile] = useState(undefined);
@@ -261,7 +262,9 @@ const handleListingDelete = async(listingId)=>{
               </Link>
               <div className="flex flex-col items-center">
                 <button onClick={()=>handleListingDelete(listing._id)} className="text-red-700 uppercase ">DELETE</button>
+                <Link to={`/update-listing/${listing._id}`}>
                 <button className="text-green-700 uppercase">EDIT</button>
+                </Link>
               </div>
             </div>
           ))}
