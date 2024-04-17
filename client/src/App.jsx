@@ -12,6 +12,7 @@ import CreateListing from './pages/CreateListing.jsx';
 import UpdateListing from './pages/UpdateListing.jsx';
 import Listing from './pages/Listing.jsx';
 import Search from './pages/Search.jsx';
+import Preference from './pages/Preference.jsx';
 export default function App() {
   return(<BrowserRouter>
     <Header/>
@@ -22,6 +23,7 @@ export default function App() {
         <Route path='/about' element={<About/>}/>
         <Route path='/listing/:listingId' element={<Listing/>}/>
         <Route path='/search' element={<Search/>}/>
+        <Route path='/preference' element={<Preference/>}/>
         <Route element={<PrivateRoute/>}>
           <Route path='/profile' element={<Profile/>}/>
           <Route path='/create-listing' element={<CreateListing/>}/>

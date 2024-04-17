@@ -36,6 +36,23 @@ export const updateUser = async (req, res, next) => {
   }
 };
 
+export const storeToken = async (req, res, next) => {
+  try{
+    const storeToken = await User.findByIdAndUpdate(req.params.id, {
+      $set: {
+        fcmToken: req.body.fcmToken
+      },
+    },{new:true});
+    if(!storeToken)
+    {
+      return res.status(500).json({success:false});
+    }
+    console.log(storeToken);
+    res.status(200).json({storeToken, success: true});
+  } catch (error) {
+    next(error);
+  }
+}
 export const deleteUser = async (req, res, next) => {
   if (req.user.id !== req.params.id) {
     return next(errorHandler(401, "You can only delete your own account"));

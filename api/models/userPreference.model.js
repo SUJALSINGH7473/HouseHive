@@ -1,8 +1,12 @@
 import mongoose from "mongoose";
 const userPreferenceSchema = new mongoose.Schema({
-      city: {
+      cityName: {
         type: String,
         required: true,
+      },
+      notification: {
+        type: Boolean,
+        required: false
       },
       minRange:{
         type: Number,
@@ -41,4 +45,4 @@ const userPreferenceSchema = new mongoose.Schema({
 );
 
 const UserPreference = mongoose.model("UserPreference", userPreferenceSchema);
-export default userPreferenceSchema;
+export default UserPreference;
